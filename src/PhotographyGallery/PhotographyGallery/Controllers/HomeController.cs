@@ -10,17 +10,23 @@ namespace PhotographyGallery.Controllers
 {
     public class HomeController : Controller
     {
-        private PhotoRepository _photoRepository = null;
+        BingRepository bingRepository = new BingRepository();
 
         public ActionResult Index()
-        {
-            List<Photo> photoList = null;
+        {            
+            BingImage[] photoList = bingRepository.GetBingImages();
             return View(photoList);
         }
 
         public ActionResult About()
         {
             return View();
+        }
+
+        public string ImageLink(string url)
+        {
+
+            return url;
         }
     }
 }
